@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Courses</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh; /* Full height of the viewport */
+            background-image: url('image.png'); /* Add your image path here */
+            background-size: cover; /* Cover the entire viewport */
+            background-position: center; /* Center the image */
+            display: flex; /* Flexbox for centering content */
+            flex-direction: column; /* Vertical layout */
+        }
+        nav {
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            position: fixed; /* Fixed at the top */
+            width: 100%; /* Full width */
+            z-index: 1000; /* Ensure it's above other elements */
+        }
+        nav .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .container {
+            text-align: center;
+            margin-top: 80px; /* Space for fixed nav */
+            color: #333; /* Dark text color for contrast */
+        }
+        h1 {
+            margin-bottom: 20px;
+            color: #fff; /* White color for heading */
+        }
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent background for table */
+            border-radius: 8px; /* Rounded corners for the table */
+            overflow: hidden; /* Clip corners */
+        }
+        th, td {
+            border: 1px solid #007bff; /* Blue border */
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #007bff; /* Blue background for header */
+            color: white; /* White text for header */
+        }
+        td {
+            color: #333; /* Dark text color for table data */
+        }
+    </style>
+    <script>
+        function displayCourses() {
+            const courses = JSON.parse(localStorage.getItem('courses')) || [];
+            const tableBody = document.getElementById('coursesTableBody');
+
+            // Clear existing rows
+            tableBody.innerHTML = '';
+
+            // Add courses to the table
+            courses.forEach((course, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${index + 1}</td>
+                    <td>${course.title}</td>
+                    <td>${course.description}</td>
+                    <td>${course.amount}</td>
+                    <td>${course.resourcePerson}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        // Call displayCourses when the page loads
+        window.onload = displayCourses;
+    </script>
+</head>
+<body>
+    <nav>
+        <button onclick="window.location.href='AddCourse.html'"></button>
+    </nav>
+    <div class="container">
+        <h1>Manage Courses</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Amount</th>
+                    <th>Resource Person</th>
+                </tr>
+            </thead>
+            <tbody id="coursesTableBody">
+                <!-- Course entries will be injected here -->
+            </tbody>
+        </table>
+    </div>
+    <script>
+        document.getElementById('managecourse-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+            window.location.href = 'admin-dashboard.html'; // Redirect to admin-dashboard.html
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Course</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100%; /* Ensure body takes full height */
+            background-image: url('add.jpg'); /* Add your image path here */
+            background-size: cover; /* Cover the entire viewport */
+            background-position: center; /* Center the image */
+        }
+        nav {
+            background-color: rgba(255, 255, 255, 0); /* Semi-transparent white */
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            position: fixed; /* Fix nav at the top */
+            width: 100%; /* Full width for nav */
+            z-index: 1000; /* Keep nav above other elements */
+        }
+        nav .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .container {
+            text-align: center;
+            margin-top: 100px; /* Space for fixed nav */
+            color: #333; /* Dark text color */
+        }
+        .container h1 {
+            font-size: 36px;
+            margin-bottom: 30px;
+        }
+        form {
+            display: inline-block;
+            text-align: left;
+            background-color: rgba(255, 255, 255, 0.9); /* Slightly more opaque background for the form */
+            padding: 20px; /* Add padding to the form */
+            border-radius: 10px; /* Rounded corners for the form */
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+        }
+        form label {
+            margin-top: 10px;
+            font-weight: bold; /* Bold labels */
+        }
+        form input {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            width: 300px;
+            border: 1px solid #ccc; /* Border for inputs */
+            border-radius: 4px; /* Rounded corners */
+        }
+        form button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px; /* Rounded corners for button */
+        }
+        form button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+    </style>
+    <script>
+        function addCourse(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Get form data
+            const title = document.getElementById('title').value;
+            const description = document.getElementById('description').value;
+            const amount = document.getElementById('amount').value;
+            const resourcePerson = document.getElementById('resourcePerson').value;
+
+            // Create course object
+            const course = {
+                title: title,
+                description: description,
+                amount: amount,
+                resourcePerson: resourcePerson
+            };
+
+            // Retrieve existing courses from localStorage or initialize an empty array
+            const courses = JSON.parse(localStorage.getItem('courses')) || [];
+            courses.push(course); // Add the new course
+
+            // Save the updated courses array back to localStorage
+            localStorage.setItem('courses', JSON.stringify(courses));
+
+            // Redirect to the Course Added page
+            window.location.href = "CourseAdded.html"; // Make sure this file exists
+        }
+    </script>
+</head>
+<body>
+    <nav>
+      
+        <button onclick="window.location.href='AddCourse.html'"></button>
+    </nav>
+    <div class="container">
+        <h1>Add Course</h1>
+        <form onsubmit="addCourse(event)">
+            <label>Title</label>
+            <input type="text" id="title" placeholder="Enter course title" required>
+            <label>Description</label>
+            <input type="text" id="description" placeholder="Enter course description" required>
+            <label>Amount</label>
+            <input type="number" id="amount" placeholder="Enter amount" required>
+            <label>Resource Person</label>
+            <input type="text" id="resourcePerson" placeholder="Enter resource person name" required>
+            <button type="submit">Add Course</button>
+        </form>
+    </div>
+</body>
+</html>

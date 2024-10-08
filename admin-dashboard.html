@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    
+    <nav>
+        <div class="logo">Learning Kart</div>
+        <ul>
+            <li><a href="#">About</a></li>
+            <li><a href="AddCourse.html">Add Courses</a></li>
+            <li><a href="managecourse.html">Manage Courses</a></li>
+            <li><a href="#" id="logout-link">Logout</a></li> <!-- Changed to a clickable link -->
+        </ul>
+    </nav>
+    <header class="dashboard-hero">
+        <h1>Welcome to Admin Dashboard</h1>
+    </header>
+
+    <script>
+        document.getElementById('logout-link').addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent the default link behavior
+            window.location.href = 'index.html'; // Redirect to index.html
+        });
+    </script>
+</body>
+</html>

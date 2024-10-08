@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register for Courses</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh; /* Full height of the viewport */
+            background-image: url('18.jpg'); /* Add your image path here */
+            background-size: cover; /* Cover the entire viewport */
+            background-position: center; /* Center the image */
+            display: flex; /* Flexbox for centering content */
+            flex-direction: column; /* Vertical layout */
+        }
+        nav {
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            position: fixed; /* Fixed at the top */
+            width: 100%; /* Full width */
+            z-index: 1000; /* Ensure it's above other elements */
+        }
+        nav .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .container {
+            text-align: center;
+            margin-top: 80px; /* Space for fixed nav */
+            color: #333; /* Dark text color for contrast */
+        }
+        h1 {
+            margin-bottom: 20px;
+            color: #fff; /* White color for heading */
+        }
+        form {
+            display: inline-block;
+            text-align: left;
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent background for form */
+            padding: 20px;
+            border-radius: 8px; /* Rounded corners for form */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+        }
+        form input, form select {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            width: 300px;
+            border: 1px solid #007bff; /* Add border */
+            border-radius: 4px; /* Rounded corners for input fields */
+        }
+        form button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px; /* Rounded corners for button */
+        }
+        form button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+    </style>
+    <script>
+        function registerCourse(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Get form data
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const course = document.getElementById('course').value;
+
+            // Create registration object
+            const registration = {
+                name: name,
+                email: email,
+                course: course
+            };
+
+            // Retrieve existing registrations from localStorage or initialize an empty array
+            const registrations = JSON.parse(localStorage.getItem('courseRegistrations')) || [];
+            registrations.push(registration); // Add the new registration
+
+            // Save the updated registrations array back to localStorage
+            localStorage.setItem('courseRegistrations', JSON.stringify(registrations));
+
+            // Display success message or redirect to a confirmation page
+            alert("Registration successful!"); // You can change this to a redirect if you have a confirmation page
+            // window.location.href = "Confirmation.html"; // Uncomment to redirect to a confirmation page
+        }
+    </script>
+</head>
+<body>
+    <nav>
+        
+        <button onclick="window.location.href='AdminDashboard.html'"></button>
+    </nav>
+    <div class="container">
+        <h1>Register for Courses</h1>
+        <form onsubmit="registerCourse(event)">
+            <label>Name</label>
+            <input type="text" id="name" placeholder="Enter your name" required>
+            <label>Email</label>
+            <input type="email" id="email" placeholder="Enter your email" required>
+            <label>Course</label>
+            <select id="course" required>
+                <option value="">Select a course</option>
+                <option value="Course 1">Course 1</option>
+                <option value="Course 2">Course 2</option>
+                <option value="Course 3">Course 3</option>
+                <!-- Add more courses as needed -->
+            </select>
+            <button type="submit">Register</button>
+        </form>
+    </div>
+</body>
+</html>

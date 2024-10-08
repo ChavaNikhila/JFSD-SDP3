@@ -1,0 +1,62 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+/* Navigation styles */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #101010;
+}
+
+nav .logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+/* Hero Section */
+/* Hero Section */
+header.hero {
+    background-image: url('11.jpg'); /* Ensure the image path is correct */
+    background-size: cover;
+    background-position: center;
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Align content to the top */
+    align-items: center;
+    padding-top: 20px; /* Adjust padding as necessary */
+}
+
+header.hero h1 {
+    font-size: 48px; /* Large font size */
+    color: #000; /* Black color for the text */
+    font-weight: bold; /* Bold text */
+    text-align: center; /* Center the text */
+    margin: 0;
+    padding-top: 20px; /* Adjust the space between the top and the text */
+}

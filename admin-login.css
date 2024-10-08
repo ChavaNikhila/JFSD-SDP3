@@ -1,0 +1,62 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.overlay {
+    height: 100%;
+    width: 100%;
+    background-image: url('loginn.jpg'); /* Use your background image */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-container {
+    text-align: center;
+}
+
+.form-container h2 {
+    font-size: 48px; /* Bigger letters for the "Admin Login" */
+    color: #fff; /* White color */
+    margin-bottom: 30px; /* Space between the title and input fields */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}
+
+form input {
+    margin-bottom: 15px;
+    padding: 10px;
+    font-size: 18px; /* Slightly larger text in the input fields */
+    border: none; /* Remove border */
+    background: transparent; /* Make input fields transparent */
+    color: #fff; /* White text */
+    outline: none; /* Remove outline on focus */
+    border-bottom: 2px solid #fff; /* Optional: Add white underline for visibility */
+}
+
+form input::placeholder {
+    color: #fff; /* White placeholder text */
+}
+
+form button {
+    padding: 10px;
+    font-size: 18px;
+    background-color: transparent; /* Transparent background for button */
+    color: #fff; /* White text */
+    border: 2px solid #fff; /* Add border to the button */
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Add slight background on hover */
+}

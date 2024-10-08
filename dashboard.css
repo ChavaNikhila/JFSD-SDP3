@@ -1,0 +1,60 @@
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #f8f8f8;
+        }
+
+        nav .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        /* Full image display for the header */
+        header.dashboard-hero {
+            background-image: url('adminn.jpg'); /* Replace with the actual image path */
+            background-size: cover;
+            background-position: center;
+            height: 100vh; /* Full screen height */
+            display: flex;
+            flex-direction: column; /* Stack elements vertically */
+            align-items: center; /* Center items horizontally */
+            justify-content: flex-start; /* Align items at the top */
+            padding-top: 20px; /* Space from the top */
+        }
+
+        header.dashboard-hero h1 {
+            font-size: 40px;
+            color: #000; /* Black color for the text */
+            background-color: transparent; /* Remove background box */
+            text-align: center; /* Center the text */
+            margin-bottom: 20px; /* Space below the title */
+        }
+    

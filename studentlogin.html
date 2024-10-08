@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Login</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            display: flex; /* Use flexbox for the main layout */
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            background-image: url('loginn.jpg'); /* Full background image */
+            background-size: cover; /* Cover the full area */
+            background-position: center; /* Center the image */
+        }
+        .form-container {
+            display: flex;
+            flex-direction: column; /* Stack items vertically */
+            justify-content: center; /* Center items vertically */
+            align-items: center; /* Center items horizontally */
+            padding: 20px; /* Add padding */
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background for better readability */
+            border-radius: 10px; /* Rounded corners for the form */
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+            text-align: center; /* Center text */
+        }
+        .form-container h1 {
+            font-size: 36px;
+            margin-bottom: 30px;
+            color: #333; /* Dark text for title */
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            width: 300px; /* Width for the form */
+        }
+        form input {
+            margin-bottom: 15px;
+            padding: 10px;
+            font-size: 18px; /* Slightly larger text in the input fields */
+            border: none; /* Remove border */
+            background: transparent; /* Make input fields transparent */
+            color: #333; /* Dark text for input fields */
+            outline: none; /* Remove outline on focus */
+            border-bottom: 2px solid #333; /* Add underline for visibility */
+        }
+        form input::placeholder {
+            color: #333; /* Dark placeholder text */
+        }
+        form button {
+            padding: 10px;
+            font-size: 18px;
+            background-color: transparent; /* Transparent background for button */
+            color: #333; /* Dark text for button */
+            border: 2px solid #333; /* Add border to the button */
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        form button:hover {
+            background-color: rgba(51, 51, 51, 0.1); /* Add slight background on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Student Login</h1>
+        <form id="studentlogin-form">
+            <input type="text" placeholder="Username" required>
+            <input type="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+    <script>
+        document.getElementById('studentlogin-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+            
+            // You can add form validation or any additional logic here if needed
+            
+            // Redirect to student dashboard after login
+            window.location.href = 'studentdashboard.html'; // Make sure this file exists
+        });
+    </script>
+</body>
+</html>
